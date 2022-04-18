@@ -1,35 +1,20 @@
 import java.util.Scanner;
-import model.*;
+
+import com.nisum.java.model.*;
 
 public class Main {
     public static void main(String[] args) {
         try {
             Scanner input = new Scanner(System.in);
-            Numero prime = new Prime();
-            Numero palindrome = new Palindrome();
-            Numero fibbonacci = new Fibbonacci();
-            System.out.println("Ingrese un numero: ");
+            Validator prime = new Prime();
+            Validator palindrome = new Palindrome();
+            Validator fibbonacci = new Fibonacci();
+            System.out.println("Enter a number: ");
             int number = input.nextInt();
 
-            if (prime.validate(number) && palindrome.validate(number) && fibbonacci.validate(number)){
-                System.out.println(number + " -> El numero es primo, palindromo y pertenece a la serie de fibonnacci");
-            } else if (prime.validate(number) && palindrome.validate(number)){
-                System.out.println(number + " -> El numero es primo y palindromo");
-            } else if (prime.validate(number) && fibbonacci.validate(number)){
-                System.out.println(number + " -> El numero es primo y pertenece a la serie de fibonnacci");
-            } else if (palindrome.validate(number) && fibbonacci.validate(number)){
-                System.out.println(number + " -> El numero es palindromo y pertenece a la serie de fibonnacci");
-            } else if (prime.validate(number)){
-                System.out.println(number + " -> El numero es primo");
-            } else if (palindrome.validate(number)){
-                System.out.println(number + " -> El numero es palindromo");
-            } else if (fibbonacci.validate(number)){
-                System.out.println(number + " -> El numero pertenece a la serie de fibbonacci");
-            } else {
-                System.out.println(number + " -> El numero no es primo ni palindromo ni pertenece a la serie");
-            }
+            System.out.println("The number " + prime.validate(number) + ", " + palindrome.validate(number) + ", " + fibbonacci.validate(number));
         } catch (Exception error){
-            System.out.println("El valor ingresado no es un numero....");
+            System.out.println("Ups!...The entered value is not a number....");
         }
     }
 }
